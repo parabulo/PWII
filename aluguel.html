@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set & Match</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    
+    <!--Hero-->
+    <section class="hero is-warning is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <a href=index.html class="navbar-brand" style="z-index: 1;">
+                    <img src="images/favicon.ico">
+                    <img src="images/Nome_Topo.png">
+                </a>
+            </nav>
+        </div>
+
+        <div class="hero-body" id="home-hero">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-one-fourth">
+                        <a class="card shadow-overlay showPopupBtn" data-place="quadra_01">
+                            <div class="card-image">
+                                <header class="card-header">
+                                    <p class="card-header-title is-centered card-text-box">
+                                        Quadar 01
+                                    </p>
+                                </header>
+                                <figure class="image is-16by9">
+                                    <img src="images/img.png" alt="">
+                                </figure>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="column is-one-fourth">
+                        <a  class="card shadow-overlay showPopupBtn" data-place="quadra_02">
+                            <div class="card-image">
+                                <header class="card-header">
+                                    <p class="card-header-title is-centered card-text-box">
+                                        Quadar 02
+                                    </p>
+                                </header>
+                                <figure class="image is-16by9">
+                                    <img src="images/img.png" alt="">
+                                </figure>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="column is-one-fourth">
+                        <a  class="card shadow-overlay showPopupBtn" data-place="quadra_03">
+                            <div class="card-image">
+                                <header class="card-header">
+                                    <p class="card-header-title is-centered card-text-box">
+                                        Quadar 03
+                                    </p>
+                                </header>
+                                <figure class="image is-16by9">
+                                    <img src="images/img.png" alt="">
+                                </figure>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="column is-one-fourth">
+                        <a  class="card shadow-overlay showPopupBtn" data-place="quadra_04">
+                            <div class="card-image">
+                                <header class="card-header">
+                                    <p class="card-header-title is-centered card-text-box">
+                                        Quadar 04
+                                    </p>
+                                </header>
+                                <figure class="image is-16by9">
+                                    <img src="images/img.png" alt="">
+                                </figure>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="myPopup">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Horários disponíveis</p>
+                <button class="delete" aria-label="close" id="closePopup"></button>
+            </header>
+            <section class="modal-card-body">
+                <form>
+                    <div class="field">
+                        <label class="label">Dia</label>
+                        <div class="control">
+                            <input class="input" type="date" placeholder="Your Name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Horário</label>
+                        <div class="control">
+                            <input class="input" type="time" placeholder="Your Email">
+                        </div>
+                        <div class="control">
+                            <input class="input" type="time" placeholder="Your Email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Nome</label>
+                        <div class="control">
+                            <input type="" class="input" placeholder="Remetente">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary is-warning" type="submit">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

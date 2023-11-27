@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeonato - Inscrição, Modalidade e Nível</title>
+    <!-- Adicionando o link para o Bootstrap -->
+    <link rel="stylesheet" href="styles/torneio.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Página 1 - Inscrição -->
+    <div id="page1">
+        <h1>Campeonato de Vôlei de Areia, Beach Tênis e Futvôlei</h1>
+
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Nome Completo:</label>
+                <input type="text" id="fullName" name="fullName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Idade:</label>
+                <input type="number" id="age" name="age" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" class="form-control" required>
+            </div>
+
+            <!-- Alterado para um botão que avança para a próxima página -->
+            <button type="button" class="btn btn-primary" onclick="mostrarPagina('page2')">Próxima Página</button>
+        </form>
+    </div>
+
+    <!-- Página 2 - Escolher Modalidade -->
+    <div id="page2" style="display: none;">
+        <div class="container">
+            <h1>Escolher Modalidade</h1>
+
+            <!-- Botões para abrir o modal -->
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" onclick="escolherModalidade('Vôlei de Areia')">Vôlei de Areia</button>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" onclick="escolherModalidade('Beach Tênis')">Beach Tênis</button>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" onclick="escolherModalidade('Futvôlei')">Futvôlei</button>
+            </div>
+
+            <!-- Adicionado um botão para voltar à primeira página -->
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary btn-block" onclick="mostrarPagina('page1')">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página 3 - Escolher Nível -->
+    <div id="page3" style="display: none;">
+        <div class="container">
+            <h1>Escolher Nível</h1>
+
+            <!-- Botões para escolher o nível -->
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" onclick="mostrarPagina('page4', 'iniciante')">Iniciante</button>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" onclick="mostrarPagina('page4', 'amador')">Amador</button>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" onclick="mostrarPagina('page4', 'profissional')">Profissional</button>
+            </div>
+
+            <!-- Adicionado um botão para voltar à segunda página -->
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary btn-block" onclick="mostrarPagina('page2')">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página 4 - Inscrição da Dupla -->
+    <div id="page4" style="display: none;">
+        <div class="container">
+            <h1>Inscrição da Dupla</h1>
+
+            <form id="teamRegistrationForm">
+                <div class="form-group">
+                    <label for="player1Name">Nome do Jogador 1:</label>
+                    <input type="text" class="form-control" id="player1Name" name="player1Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="player1CPF">CPF do Jogador 1:</label>
+                    <input type="text" class="form-control" id="player1CPF" name="player1CPF" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="player2Name">Nome do Jogador 2:</label>
+                    <input type="text" class="form-control" id="player2Name" name="player2Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="player2CPF">CPF do Jogador 2:</label>
+                    <input type="text" class="form-control" id="player2CPF" name="player2CPF" required>
+                </div>
+
+                <!-- Adicionado um botão para voltar à terceira página -->
+                <button type="button" class="btn btn-secondary btn-block" onclick="mostrarPagina('page3', 'modalidade', 'nivel')">Voltar</button>
+                <!-- Alterado para um botão que avança para a próxima página -->
+                <button type="button" class="btn btn-primary btn-block" onclick="finalizarInscricao()">Próxima Página</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Adicionando os scripts do Bootstrap (jQuery e Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js" integrity="sha384-M6mzQ0qjAZK1eE0vMpJUA7zz9qYjwp0zSO+Wx1t+rq+L4N2LOqDEqC3sRPjHEqy" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        // Função para mostrar/ocultar páginas
+        function mostrarPagina(pagina, modalidade, nivel) {
+            var pages = document.querySelectorAll('[id^="page"]');
+            pages.forEach(function (page) {
+                page.style.display = 'none';
+            });
+
+            var selectedPage = document.getElementById(pagina);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+
+                // Atualizar informações da escolha anterior (modalidade e nível)
+                if (modalidade) {
+                    document.getElementById('modalidadeEscolhida').innerText = "Modalidade escolhida: " + modalidade;
+                }
+                if (nivel) {
+                    document.getElementById('nivelEscolhido').innerText = "Nível escolhido: " + nivel;
+                }
+            }
+        }
+
+        // Função para escolher a modalidade e avançar para a escolha do nível
+        function escolherModalidade(modalidade) {
+            // Adicionar lógica adicional se necessário
+            console.log('Modalidade escolhida:', modalidade);
+
+            // Avançar para a escolha do nível (página 3)
+            mostrarPagina('page3', modalidade, 'iniciante'); // Nível padrão 'iniciante', pode ser alterado conforme necessário
+        }
+
+        // Função para finalizar a inscrição
+        function finalizarInscricao() {
+            // Adicionar lógica para enviar os dados da inscrição
+            var player1Name = document.getElementById('player1Name').value;
+            var player1CPF = document.getElementById('player1CPF').value;
+            var player2Name = document.getElementById('player2Name').value;
+            var player2CPF = document.getElementById('player2CPF').value;
+
+            // Exemplo de log, você deve enviar esses dados para o servidor ou realizar a lógica necessária
+            console.log('Inscrição da Dupla:');
+            console.log('Jogador 1 - Nome:', player1Name, 'CPF:', player1CPF);
+            console.log('Jogador 2 - Nome:', player2Name, 'CPF:', player2CPF);
+        }
+    </script>
+
+</body>
+
+</html>

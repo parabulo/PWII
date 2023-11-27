@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Popup with Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+
+    <a class="button is-primary" id="showPopupBtn">
+        <img src="images/img.png" alt="Popup Trigger Image">
+    </a>
+
+    <div class="modal" id="myPopup">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Popup Form</p>
+                <button class="delete" aria-label="close" id="closePopup"></button>
+            </header>
+            <section class="modal-card-body">
+                <form>
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Your Name">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" placeholder="Your Email">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var showPopupBtn = document.getElementById('showPopupBtn');
+        var popup = document.getElementById('myPopup');
+        var closePopup = document.getElementById('closePopup');
+
+        // Show the popup
+        showPopupBtn.addEventListener('click', function () {
+            popup.classList.add('is-active');
+        });
+
+        // Close the popup
+        closePopup.addEventListener('click', function () {
+            popup.classList.remove('is-active');
+        });
+
+        // Close the popup if clicked outside the content
+        window.addEventListener('click', function (event) {
+            if (event.target === popup) {
+                popup.classList.remove('is-active');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
